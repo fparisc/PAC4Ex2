@@ -2,6 +2,8 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
+import java.util.Locale;
+
 public class Photon extends Boson {
 
     private double wavelength;
@@ -29,7 +31,7 @@ public class Photon extends Boson {
 
     @Override
     public String toString() {
-        return String.format(
+        return String.format(Locale.US,
                 """
                         {
                           "type": "photon",
@@ -41,7 +43,7 @@ public class Photon extends Boson {
 
     @Override
     public void simulate() {
-        System.out.printf("Photon [%s] with wavelength %.2f nm has been absorbed, transferring %.2f eV of energy.%n",
+        System.out.printf(Locale.US, "Photon [%s] with wavelength %.2f nm has been absorbed, transferring %.2f eV of energy.%n",
                 getId(), wavelength, getEnergy());
     }
 }

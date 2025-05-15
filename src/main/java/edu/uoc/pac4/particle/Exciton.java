@@ -2,6 +2,8 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
+import java.util.Locale;
+
 public class Exciton extends QuasiParticle implements QuantumDecaying {
 
     private double bindingEnergy;
@@ -39,13 +41,14 @@ public class Exciton extends QuasiParticle implements QuantumDecaying {
 
     @Override
     public String toString() {
-        return String.format(
-                "{\n" +
-                        "  \"type\": \"exciton\",\n" +
-                        "  \"quasiParticle\": %s,\n" +
-                        "  \"bindingEnergy\": %.2f,\n" +
-                        "  \"decayTime\": %.3e\n" +
-                        "}",
+        return String.format(Locale.US,
+                """
+                        {
+                          "type": "exciton",
+                          "quasiParticle": %s,
+                          "bindingEnergy": %.2f,
+                          "decayTime": %.2e
+                        }""",
                 super.toString(),
                 bindingEnergy,
                 decayTime
@@ -54,7 +57,7 @@ public class Exciton extends QuasiParticle implements QuantumDecaying {
 
     @Override
     public void simulate() {
-        System.out.printf(
+        System.out.printf(Locale.US,
                 "Exciton [%s] with binding energy %.2f eV decays after %.2e s.%n",
                 getId(),
                 bindingEnergy,

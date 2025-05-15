@@ -2,6 +2,8 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
+import java.util.Locale;
+
 public class Muon extends Fermion implements QuantumDecaying {
 
     private double decayTime;
@@ -25,12 +27,13 @@ public class Muon extends Fermion implements QuantumDecaying {
 
     @Override
     public String toString() {
-        return String.format(
-                "{\n" +
-                        "  \"type\": \"muon\",\n" +
-                        "  \"fermion\": %s,\n" +
-                        "  \"decayTime\": %.3e\n" +
-                        "}",
+        return String.format(Locale.US,
+                """
+                        {
+                          "type": "muon",
+                          "fermion": %s,
+                          "decayTime": %.2e
+                        }""",
                 super.toString(),
                 decayTime
         );
@@ -38,7 +41,7 @@ public class Muon extends Fermion implements QuantumDecaying {
 
     @Override
     public void simulate() {
-        System.out.printf(
+        System.out.printf(Locale.US,
                 "Muon [%s] with lepton number %d decays after %.2e s.%n",
                 getId(),
                 getLeptonNumber(),

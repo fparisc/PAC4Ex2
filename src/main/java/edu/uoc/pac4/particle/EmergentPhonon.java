@@ -2,6 +2,8 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
+import java.util.Locale;
+
 public class EmergentPhonon extends QuasiParticle {
 
     private String vibrationMode;
@@ -43,7 +45,7 @@ public class EmergentPhonon extends QuasiParticle {
 
     @Override
     public void simulate() {
-        System.out.printf(
+        System.out.printf(Locale.US,
                 "EmergentPhonon [%s] vibrating in %s mode with lifetime %.2e s.%n",
                 getId(),
                 vibrationMode,

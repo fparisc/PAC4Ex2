@@ -40,10 +40,17 @@ public class Majorana extends QuasiParticle {
     @Override
     public void simulate() {
         String behavior = isSelfConjugate ? "self-conjugate" : "distinct from its antiparticle";
+        MaterialType mt = getMaterialType();
+        String materialJson = String.format(
+                Locale.US,
+                "{\"name\": \"%s\", \"density\": %.2f}",
+                mt.getName(),
+                mt.getDensity()
+        );
         System.out.printf(
                 "Majorana [%s] in %s material behaving as %s particle.%n",
                 getId(),
-                getMaterialType().getName(),
+                materialJson,
                 behavior
         );
     }
