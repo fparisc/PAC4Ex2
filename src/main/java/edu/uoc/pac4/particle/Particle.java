@@ -2,6 +2,8 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
+import java.util.Locale;
+
 public abstract class Particle implements Cloneable, Simulatable {
 
     private String id;
@@ -85,7 +87,7 @@ public abstract class Particle implements Cloneable, Simulatable {
 
     @Override
     public String toString() {
-        return String.format(
+        return String.format(Locale.US,
                 "{\n  \"id\": \"%s\",\n  \"mass\": %.2f,\n  \"charge\": %.2f,\n  \"spin\": %.2f,\n  \"energy\": %.2f\n}",
                 id, mass, charge, spin, energy
         );

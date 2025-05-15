@@ -2,6 +2,8 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
+import java.util.Locale;
+
 public class Majorana extends QuasiParticle {
 
     private boolean isSelfConjugate;
@@ -25,7 +27,7 @@ public class Majorana extends QuasiParticle {
 
     @Override
     public String toString() {
-        return String.format(
+        return String.format(Locale.US,
                 """
                         {
                           "type": "majorana",

@@ -2,6 +2,8 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
+import java.util.Locale;
+
 public abstract class QuasiParticle extends Particle {
 
     private double lifeTime;
@@ -54,6 +56,7 @@ public abstract class QuasiParticle extends Particle {
     @Override
     public String toString() {
         return String.format(
+                Locale.US,
                 """
                         {
                           "particle": %s,
