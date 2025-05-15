@@ -18,7 +18,6 @@ public class Gluon extends Boson {
     }
 
     public void setColorCharge(String colorCharge) throws ParticleException {
-
         if (colorCharge == null || colorCharge.trim().isEmpty()) {
             throw new ParticleException(ParticleException.ERROR_COLOR_CHARGE);
         }

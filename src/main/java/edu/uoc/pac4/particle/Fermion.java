@@ -16,7 +16,6 @@ public abstract class Fermion extends Particle {
     }
 
     public void setLeptonNumber(int leptonNumber) throws ParticleException {
-
         if (leptonNumber < 0) {
             throw new ParticleException(ParticleException.ERROR_LEPTON_NUMBER);
         }

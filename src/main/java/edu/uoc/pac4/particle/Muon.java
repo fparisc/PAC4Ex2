@@ -10,6 +10,7 @@ public class Muon extends Fermion implements QuantumDecaying {
 
     public Muon(String id, double mass, double charge, double spin, double energy,
                 int leptonNumber, double decayTime) throws ParticleException {
+
         super(id, mass, charge, spin, energy, leptonNumber);
         setDecayTime(decayTime);
     }
@@ -22,6 +23,7 @@ public class Muon extends Fermion implements QuantumDecaying {
         if (decayTime < 0 || Double.isInfinite(decayTime)) {
             throw new ParticleException(ParticleException.ERROR_DECAY_TIME);
         }
+
         this.decayTime = decayTime;
     }
 

@@ -57,6 +57,7 @@ public class DataRepository implements Cloneable {
 
     @Override
     public String toString() {
+
         StringBuilder sb = new StringBuilder();
         sb.append("{\n");
         sb.append("  \"name\": \"").append(name).append("\",\n");
@@ -84,10 +85,13 @@ public class DataRepository implements Cloneable {
         try {
             DataEntry[] clonedEntries = new DataEntry[dataEntries.size()];
             int i = 0;
+
             for (DataEntry entry : dataEntries.values()) {
                 clonedEntries[i++] = (DataEntry) entry.clone();
             }
+
             return new DataRepository(this.name, clonedEntries);
+
         } catch (Exception e) {
             throw new CloneNotSupportedException(e.toString());
         }

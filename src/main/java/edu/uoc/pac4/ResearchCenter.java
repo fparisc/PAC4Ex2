@@ -28,7 +28,6 @@ public class ResearchCenter {
     }
 
     public void setName(String name) throws ResearchCenterException {
-
         if (name == null || name.isBlank()) {
             throw new ResearchCenterException(ResearchCenterException.ERROR_NAME);
         }
@@ -41,7 +40,6 @@ public class ResearchCenter {
     }
 
     public void setCity(String city) throws ResearchCenterException {
-
         if (city == null) {
             throw new ResearchCenterException(ResearchCenterException.ERROR_CITY);
         }
@@ -54,7 +52,6 @@ public class ResearchCenter {
     }
 
     public void setAddress(String address) throws ResearchCenterException {
-
         if (address == null) {
             throw new ResearchCenterException(ResearchCenterException.ERROR_ADDRESS);
         }
@@ -67,7 +64,6 @@ public class ResearchCenter {
     }
 
     public void setPhoneNumber(String phone) throws ResearchCenterException {
-
         if (phone == null || !phone.matches( "^\\+?[0-9]{7,}$")) {
             throw new ResearchCenterException(ResearchCenterException.ERROR_PHONE_NUMBER);
         }
@@ -80,7 +76,6 @@ public class ResearchCenter {
     }
 
     public void setEmail(String email) throws ResearchCenterException {
-
         if (email == null || !Pattern.matches("^[a-z0-9._-]+@[a-z0-9-]+\\.[a-z]{2,}$", email)) {
             throw new ResearchCenterException(ResearchCenterException.ERROR_EMAIL);
         }
@@ -93,7 +88,6 @@ public class ResearchCenter {
     }
 
     public void setDataRepository(DataRepository dataRepository) throws ResearchCenterException {
-
         if (dataRepository == null) {
             throw new ResearchCenterException(ResearchCenterException.ERROR_DATA_REPOSITORY);
         }
@@ -103,7 +97,6 @@ public class ResearchCenter {
 
     @Override
     public String toString() {
-
         return String.format(
                 "{\n  \"name\": \"%s\",\n  \"city\": \"%s\",\n  \"address\": \"%s\",\n  \"phoneNumber\": \"%s\",\n  \"email\": \"%s\",\n  \"dataRepository\": %s\n}",
                 name, city, address, phoneNumber, email, dataRepository

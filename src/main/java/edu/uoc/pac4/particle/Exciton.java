@@ -12,6 +12,7 @@ public class Exciton extends QuasiParticle implements QuantumDecaying {
     public Exciton(String id, double mass, double charge, double spin, double energy,
                    double lifeTime, double coherenceLength, MaterialType materialType,
                    double bindingEnergy, double decayTime) throws ParticleException {
+
         super(id, mass, charge, spin, energy, lifeTime, coherenceLength, materialType);
         setBindingEnergy(bindingEnergy);
         setDecayTime(decayTime);
@@ -25,6 +26,7 @@ public class Exciton extends QuasiParticle implements QuantumDecaying {
         if (bindingEnergy < 0 || Double.isInfinite(bindingEnergy)) {
             throw new ParticleException(ParticleException.ERROR_BINDING_ENERGY);
         }
+
         this.bindingEnergy = bindingEnergy;
     }
 
@@ -36,6 +38,7 @@ public class Exciton extends QuasiParticle implements QuantumDecaying {
         if (decayTime < 0 || Double.isInfinite(decayTime)) {
             throw new ParticleException(ParticleException.ERROR_DECAY_TIME);
         }
+
         this.decayTime = decayTime;
     }
 

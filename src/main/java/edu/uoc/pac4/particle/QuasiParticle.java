@@ -14,7 +14,6 @@ public abstract class QuasiParticle extends Particle {
                          double lifeTime, double coherenceLength, MaterialType materialType) throws ParticleException {
 
         super(id, mass, charge, spin, energy);
-
         setLifeTime(lifeTime);
         setCoherenceLength(coherenceLength);
         setMaterialType(materialType);
@@ -28,6 +27,7 @@ public abstract class QuasiParticle extends Particle {
         if (lifeTime <= 0 || Double.isInfinite(lifeTime)) {
             throw new ParticleException(ParticleException.ERROR_LIFETIME);
         }
+
         this.lifeTime = lifeTime;
     }
 
@@ -39,6 +39,7 @@ public abstract class QuasiParticle extends Particle {
         if (coherenceLength < 0 || Double.isInfinite(coherenceLength)) {
             throw new ParticleException(ParticleException.ERROR_COHERENCE_LENGTH);
         }
+
         this.coherenceLength = coherenceLength;
     }
 
@@ -50,6 +51,7 @@ public abstract class QuasiParticle extends Particle {
         if (materialType == null) {
             throw new ParticleException(ParticleException.ERROR_MATERIAL_TYPE);
         }
+
         this.materialType = materialType;
     }
 

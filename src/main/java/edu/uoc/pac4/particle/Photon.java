@@ -21,7 +21,6 @@ public class Photon extends Boson {
     }
 
     public void setWavelength(double wavelength) throws ParticleException {
-
         if (wavelength < 0 || Double.isInfinite(wavelength)) {
             throw new ParticleException(ParticleException.ERROR_WAVELENGTH);
         }
@@ -43,7 +42,8 @@ public class Photon extends Boson {
 
     @Override
     public void simulate() {
-        System.out.printf(Locale.US, "Photon [%s] with wavelength %.2f nm has been absorbed, transferring %.2f eV of energy.%n",
+        System.out.printf(Locale.US,
+                "Photon [%s] with wavelength %.2f nm has been absorbed, transferring %.2f eV of energy.%n",
                 getId(), wavelength, getEnergy());
     }
 }

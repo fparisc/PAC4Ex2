@@ -25,7 +25,6 @@ public abstract class Particle implements Cloneable, Simulatable {
     }
 
     public void setId(String id) throws ParticleException {
-
         if (id == null || id.trim().isEmpty()) {
             throw new ParticleException(ParticleException.ERROR_ID);
         }
@@ -38,7 +37,6 @@ public abstract class Particle implements Cloneable, Simulatable {
     }
 
     public void setMass(double mass) throws ParticleException {
-
         if (mass < 0 || Double.isInfinite(mass)) {
             throw new ParticleException(ParticleException.ERROR_MASS);
         }
@@ -51,7 +49,6 @@ public abstract class Particle implements Cloneable, Simulatable {
     }
 
     public void setCharge(double charge) throws ParticleException {
-
         if (Double.isInfinite(charge)) {
             throw new ParticleException(ParticleException.ERROR_CHARGE);
         }
@@ -64,7 +61,6 @@ public abstract class Particle implements Cloneable, Simulatable {
     }
 
     public void setSpin(double spin) throws ParticleException {
-
         if (spin < 0 || Double.isInfinite(spin)) {
             throw new ParticleException(ParticleException.ERROR_SPIN);
         }
@@ -77,7 +73,6 @@ public abstract class Particle implements Cloneable, Simulatable {
     }
 
     public void setEnergy(double energy) throws ParticleException {
-
         if (energy < 0 || Double.isInfinite(energy)) {
             throw new ParticleException(ParticleException.ERROR_ENERGY);
         }

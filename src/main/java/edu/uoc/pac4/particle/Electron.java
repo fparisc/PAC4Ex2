@@ -12,10 +12,11 @@ public class Electron extends Fermion {
     @Override
     public String toString() {
         return String.format(
-                "{\n" +
-                        "  \"type\": \"electron\",\n" +
-                        "  \"fermion\": %s\n" +
-                        "}",
+                """
+                        {
+                          "type": "electron",
+                          "fermion": %s
+                        }""",
                 super.toString()
         );
     }

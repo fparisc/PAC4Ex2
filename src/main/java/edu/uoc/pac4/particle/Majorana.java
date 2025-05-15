@@ -14,7 +14,6 @@ public class Majorana extends QuasiParticle {
 
         super(id, mass, charge, spin, energy, lifeTime, coherenceLength, materialType);
         this.isSelfConjugate = isSelfConjugate;
-
     }
 
     public boolean isSelfConjugate() {

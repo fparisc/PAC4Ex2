@@ -76,6 +76,7 @@ public class DataEntry implements  Cloneable {
         if (particle == null) {
             throw new DataEntryException(DataEntryException.ERROR_PARTICLE);
         }
+
         this.particle = particle;
     }
 
@@ -106,6 +107,7 @@ public class DataEntry implements  Cloneable {
     public Object clone() throws CloneNotSupportedException {
         try {
             return new DataEntry(id, title, timestamp, observations, (Particle) particle.clone());
+
         } catch (DataEntryException e) {
             throw new CloneNotSupportedException(e.getMessage());
         }
