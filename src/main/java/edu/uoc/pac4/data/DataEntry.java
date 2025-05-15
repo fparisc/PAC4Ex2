@@ -1,22 +1,25 @@
 package edu.uoc.pac4.data;
 
 import edu.uoc.pac4.exception.DataEntryException;
+import edu.uoc.pac4.particle.Particle;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class DataEntry {
+public class DataEntry implements  Cloneable {
 
     private int id;
     private String title;
     private LocalDateTime timestamp;
     private String observations;
+    private Particle particle;
 
-    public DataEntry(int id, String title, LocalDateTime timestamp, String observations) throws DataEntryException {
+    public DataEntry(int id, String title, LocalDateTime timestamp, String observations, Particle particle) throws DataEntryException {
         setId(id);
         setTitle(title);
         setTimestamp(timestamp);
         setObservations(observations);
+        setParticle(particle);
     }
 
     public int getId() {
@@ -67,11 +70,20 @@ public class DataEntry {
         this.observations = observations.trim();
     }
 
+    public Particle getParticle() {return particle;}
+
+    public void setParticle(Particle particle) throws DataEntryException {
+        if (particle == null) {
+            throw new DataEntryException(DataEntryException.ERROR_PARTICLE);
+        }
+        this.particle = particle;
+    }
+
     @Override
     public String toString() {
         return String.format(
-                "{\n  \"id\": %d,\n  \"title\": \"%s\",\n  \"timestamp\": \"%s\",\n  \"observations\": \"%s\"\n}",
-                id, title, timestamp.toString(), observations
+                "{\n  \"id\": %d,\n  \"title\": \"%s\",\n  \"timestamp\": \"%s\",\n  \"observations\": \"%s\",\n  \"particle\": %s\n}",
+                id, title, timestamp.toString(), observations, particle
         );
     }
 
@@ -88,5 +100,15 @@ public class DataEntry {
         return Objects.equals(this.title, other.title)
                 && Objects.equals(this.timestamp, other.timestamp)
                 && Objects.equals(this.observations, other.observations);
+    }
+
+    @Override
+    public DataEntry clone() throws CloneNotSupportedException {
+        try {
+            Particle clonedParticle = (Particle) particle.clone();
+            return new DataEntry(id, title, timestamp, observations, clonedParticle);
+        } catch (DataEntryException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
