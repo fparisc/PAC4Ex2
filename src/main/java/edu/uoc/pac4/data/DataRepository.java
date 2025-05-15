@@ -78,17 +78,18 @@ public class DataRepository implements Cloneable {
         return sb.toString();
     }
 
+
     @Override
-    public DataRepository clone() {
+    public Object clone() throws CloneNotSupportedException {
         try {
             DataEntry[] clonedEntries = new DataEntry[dataEntries.size()];
             int i = 0;
             for (DataEntry entry : dataEntries.values()) {
-                clonedEntries[i++] = entry.clone();
+                clonedEntries[i++] = (DataEntry) entry.clone();
             }
             return new DataRepository(this.name, clonedEntries);
         } catch (Exception e) {
-            throw new RuntimeException("Error cloning DataRepository", e);
+            throw new CloneNotSupportedException(e.toString());
         }
     }
 }

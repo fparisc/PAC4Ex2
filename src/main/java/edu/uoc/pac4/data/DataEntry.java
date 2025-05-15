@@ -103,12 +103,11 @@ public class DataEntry implements  Cloneable {
     }
 
     @Override
-    public DataEntry clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         try {
-            Particle clonedParticle = (Particle) particle.clone();
-            return new DataEntry(id, title, timestamp, observations, clonedParticle);
+            return new DataEntry(id, title, timestamp, observations, (Particle) particle.clone());
         } catch (DataEntryException e) {
-            throw new RuntimeException(e);
+            throw new CloneNotSupportedException(e.getMessage());
         }
     }
 }
